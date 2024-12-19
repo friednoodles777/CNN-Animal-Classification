@@ -64,8 +64,20 @@ The gray-world algorithm was applied to the manipulated test set to balance colo
 
 ## Visualizations
 ### Accuracy and Loss Graphs
+- **Accuracy Graph:** Displays the training and validation accuracy over epochs.
+- **Loss Graph:** Displays the training and validation loss over epochs.
+
 ![Accuracy Graph](./accuracy_graph.png)
 ![Loss Graph](./loss_graph.png)
+
+---
+
+## Example Predictions
+
+| Predicted Class | Confidence |
+|-----------------|------------|
+| Elephant        | 85%        |
+| Rabbit          | 78%        |
 
 ---
 
@@ -108,3 +120,17 @@ pip install tensorflow opencv-python matplotlib scikit-learn
 ## License
 This project is licensed under the MIT License. For more details, please refer to the [LICENSE](./LICENSE) file.
 
+---
+
+## Contributors
+- **[N. Begüm Aydoğdu](https://github.com/friednoddles777)** - Developer and Documentation
+
+
+---
+
+## Limitations
+- The model struggles with heavily manipulated data (accuracy drops significantly).
+- Limited to 10 classes; performance on other classes is not evaluated.
+- Sensitivity to brightness and contrast manipulations highlights a potential gap in robustness.
+
+---
