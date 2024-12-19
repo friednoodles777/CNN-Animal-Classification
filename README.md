@@ -1,6 +1,6 @@
 # CNN-Based Animal Image Classification
 
-This project utilizes a Convolutional Neural Network (CNN) to classify animal images into 10 distinct classes. The model's robustness is tested under manipulated test data and adjusted with color constancy techniques.
+This project utilizes a Convolutional Neural Network (CNN) to classify animal images into 10 distinct classes. The model is tested against real-world data manipulations such as brightness and contrast changes to assess its robustness.
 
 ---
 
@@ -20,12 +20,16 @@ The aim of this project is to classify images of animals using a CNN-based model
 - Training Accuracy: **71.88%**
 - Validation Accuracy: **43.33%**
 
+---
+
 ## Dataset
 
 - **Source**: [Animals with Attributes 2](https://www.kaggle.com/datasets/rrebirrth/animals-with-attributes-2)
 - **Classes**: Collie, Dolphin, Elephant, Fox, Moose, Rabbit, Sheep, Squirrel, Giant Panda, Polar Bear
 - **Images per class**: 650
 - **Total Images**: 6500 (128x128 resolution, normalized)
+
+---
 
 ## Key Steps
 
@@ -41,7 +45,10 @@ Applied the following transformations using `ImageDataGenerator`:
 - Brightness adjustments (0.8–1.2)
 - Added Gaussian noise
 
-### 3. Model Architecture
+### 3. Color Constancy Adjustment
+The gray-world algorithm was applied to the manipulated test set to balance color shifts. This technique aims to standardize brightness and color variations caused by external factors.
+
+### 4. Model Architecture
 - **Convolutional Layers**: Extracted features with filters of size (3x3).
 - **Batch Normalization**: Improved convergence and regularization.
 - **Max Pooling Layers**: Reduced spatial dimensions.
@@ -53,15 +60,14 @@ Applied the following transformations using `ImageDataGenerator`:
 - Optimizer: Adam
 - Loss Function: Categorical Crossentropy
 
-### 4. Evaluation
-The model's performance was evaluated on:
-1. **Original Test Set**: Unaltered data.
-2. **Manipulated Test Set**: Brightness increased using scaling factors.
-3. **Color Constancy Adjusted Test Set**: Gray-world algorithm applied to corrected brightness shifts.
+---
 
 ## Visualizations
 ### Accuracy and Loss Graphs
-- Training and validation accuracy/loss metrics were plotted to analyze the model's performance over 20 epochs.
+![Accuracy Graph](./accuracy_graph.png)
+![Loss Graph](./loss_graph.png)
+
+---
 
 ## Installation and Usage
 
@@ -80,15 +86,25 @@ pip install tensorflow opencv-python matplotlib scikit-learn
    ```bash
    cd CNN-Animal-Classification
    ```
-3. Open the Jupyter Notebook or Python script:
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Open the Jupyter Notebook or Python script:
    ```bash
    jupyter notebook notebook.ipynb
    ```
 
-## Future Work
-- Optimize the CNN architecture to improve validation accuracy.
-- Use advanced data augmentation techniques.
-- Analyze why accuracy drops significantly under manipulated conditions.
+---
 
-## Acknowledgments
-Special thanks to Kaggle for providing the dataset and the open-source community for their tools and libraries.
+## Future Work
+- Implement additional preprocessing techniques (e.g., adaptive histogram equalization).
+- Use advanced data augmentation techniques.
+- Apply transfer learning with pretrained models such as VGG16 or ResNet.
+- Optimize the CNN architecture to improve validation accuracy.
+
+---
+
+## License
+This project is licensed under the MIT License. For more details, please refer to the [LICENSE](./LICENSE) file.
+
