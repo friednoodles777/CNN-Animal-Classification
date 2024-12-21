@@ -123,7 +123,7 @@ This project is licensed under the MIT License. For more details, please refer t
 ---
 
 ## Contributors
-- **[N. Begüm Aydoğdu](https://github.com/friednoddles777)** - Developer and Documentation
+- **[N. Begüm Aydoğdu](https://github.com/friednoodles777)** - Developer and Documentation
 
 
 ---
